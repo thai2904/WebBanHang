@@ -13,10 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Upload HTML files
-        run: |
-          mkdir -p $GITHUB_WORKSPACE/published
-          cp -r * $GITHUB_WORKSPACE/published/
+      - name: Create a published directory
+        run: mkdir -p $GITHUB_WORKSPACE/published
+
+      - name: Copy HTML files to published folder
+        run: cp -r * $GITHUB_WORKSPACE/published/
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
